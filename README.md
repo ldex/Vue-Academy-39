@@ -1,42 +1,25 @@
-# vue-project
+# Vue Academy Demo App
 
-This template should help get you started developing with Vue 3 in Vite.
+Demo Project coded during a <a href="https://vue.ac" target="_blank">Vue Academy Workshop</a>.
 
-## Recommended IDE Setup
+[![Vue Academy](https://www.vueacademy.ca/images/classroom.jpeg "Vue Academy")](https://www.vueacademy.ca)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Vue Academy is a world-class hands-on instructor-led Vue training provider.
 
-## Recommended Browser Setup
+Visit www.vueacademy.ca for details on our Vue course.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Local installation
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+You need to restore the npm dependencies first:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Run the app on a local dev server
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+The app is typically running on `http://localhost:5173/` and will automatically reload if you change/save any of the source files.
