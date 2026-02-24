@@ -30,7 +30,7 @@ onMounted(loadData);
     <div v-if="isLoading">
       <div class="loader">Loading products...</div>
     </div>
-    <product-list v-else :products="products"></product-list>
+    <product-list v-else :products="products" :page-size="5"></product-list>
   </section>
 </template>
 
