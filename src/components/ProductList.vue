@@ -11,7 +11,8 @@
         <ul class="products">
             <li v-for="product in sortedFilteredPaginatedProducts" v-bind:key="product.id"
                 :class='{ discontinued: product.discontinued, selected: selectedProduct?.id === product.id }'
-                @click="selectedProduct = product" :title="JSON.stringify(product)">
+                @click="onSelect(product)"
+                :title="JSON.stringify(product)">
                 <span class="name">{{ product.name }}</span>
                 <span class="description">{{ product.description }}</span>
                 <span class="price">{{ product.price }}</span>
@@ -26,14 +27,19 @@
             Next &gt;
         </button>
 
-        <product-details :product="selectedProduct"></product-details>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watch, type ComputedRef } from 'vue'
 import type { Product } from '@/types';
-import ProductDetails from '@/components/ProductDetails.vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function onSelect(product: Product): void {
+      router.push({ name: "product", params: { id: product.id } });
+}
 
 interface Props {
     products: Product[],

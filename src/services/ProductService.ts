@@ -23,4 +23,16 @@ export default {
     }
   },
 
+  async getProduct(id: number): Promise<Product> {
+    const url = `${baseURL}/${resourceName}/${id}`;
+
+    try {
+      const response = await fetch(url);
+      return await response.json();
+    } catch (error) {
+      console.error("API Error while loading product:", error);
+      throw error;
+    }
+  },
+
 }

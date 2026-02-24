@@ -1,37 +1,20 @@
 <script setup lang="ts">
-import ProductList from '@/components/ProductList.vue';
-import type { Product } from './types';
-import { ref, onMounted } from 'vue'
-import ProductService from './services/ProductService';
 
-const errorMessage = ref<string>();
-const isLoading = ref<boolean>(false);
-const products = ref<Product[]>([]);
-
-const loadData = async () => {
-  isLoading.value = true;
-  try {
-    products.value = await ProductService.getProducts();
-  } catch (error) {
-    errorMessage.value = 'There was an error getting products from server, ' + error;
-  } finally {
-    isLoading.value = false;
-  }
-}
-
-onMounted(loadData);
 </script>
 
 <template>
-  <section v-if="errorMessage" class="errorMessage">
-    {{ errorMessage }}
-  </section>
-  <section v-else>
-    <div v-if="isLoading">
-      <div class="loader">Loading products...</div>
-    </div>
-    <product-list v-else :products="products" :page-size="5"></product-list>
-  </section>
+  <div id="app">
+    <h1>Vue Store</h1>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/products">Products</router-link>
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view />
+    <hr />
+    <footer>Copyright Vue Academy 2026</footer>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
