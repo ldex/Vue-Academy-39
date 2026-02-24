@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onErrorCaptured } from 'vue'
 import ProductList from '@/components/ProductList.vue';
 import ProductService from '@/services/ProductService';
 import type { Product } from '@/types';
@@ -19,6 +19,11 @@ import type { Product } from '@/types';
 const products = ref<Product[]>([]);
 const errorMessage = ref<string>();
 const isLoading = ref<boolean>(false);
+
+onErrorCaptured((error) => {
+    console.error('Error in component: ', error.message);
+    return true; // allow error to propagate to global handler
+});
 
 const loadData = async () => {
     isLoading.value = true;

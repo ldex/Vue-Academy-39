@@ -60,6 +60,7 @@ let title: string = 'Products';
 function nextPage(): void {
     pageNumber.value++;
     selectedProduct.value = undefined;
+    throw new Error("testing error...");
 }
 
 function prevPage(): void {
