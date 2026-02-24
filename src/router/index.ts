@@ -4,8 +4,6 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import AboutView from "@/views/AboutView.vue";
-import ProductsView from "@/views/ProductsView.vue";
 import ProductDetailsView from '@/views/ProductDetailsView.vue';
 import ErrorView from "@/views/ErrorView.vue";
 
@@ -18,19 +16,19 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/about",
     name: "about",
-    component: AboutView,
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: "/products",
     name: "products",
-    component: ProductsView,
+    component: () => import('../views/ProductsView.vue')
   },
   {
       path: '/product/:id',
       name: 'product',
       component: ProductDetailsView,
       props: castRouteParamsId
-    },
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "error",
