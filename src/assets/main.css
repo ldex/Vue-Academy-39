@@ -1,3 +1,5 @@
+@import './animate.css';
+
 .errorMessage {
   color: red;
 }
@@ -71,38 +73,29 @@
   }
 }
 
-
 h1 {
   color: #42b983;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
   margin: 0px;
 }
-
-h2,
-h3 {
+h2, h3 {
   color: #435466;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-
 body {
   margin: 2em;
   margin-top: 0.5em;
 }
-
-body,
-input[text],
-button {
+body, input[text], button {
   color: #888;
   font-family: Cambria, Georgia;
 }
-
 a {
   cursor: pointer;
   cursor: hand;
 }
-
 button {
   font-family: Arial;
   background-color: #eee;
@@ -112,22 +105,18 @@ button {
   cursor: pointer;
   cursor: hand;
 }
-
 button:hover {
   background-color: #cfd8dc;
 }
-
 button:disabled {
   background-color: #eee;
   color: #aaa;
   cursor: auto;
 }
-
 footer {
   padding-top: 10px;
   clear: both;
 }
-
 .left {
   float: left;
 }
@@ -145,17 +134,13 @@ nav a {
   background-color: #eee;
   border-radius: 4px;
 }
-
-nav a:visited,
-a:link {
+nav a:visited, a:link {
   color: #607D8B;
 }
-
 nav a:hover {
   color: #039be5;
   background-color: #CFD8DC;
 }
-
 nav a.router-link-exact-active {
   color: #FFF;
   background-color: #42b983;

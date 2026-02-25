@@ -1,10 +1,9 @@
 import type { Product } from "@/types";
 
-const baseURL = import.meta.env.VITE_API_SERVER_URL
-const resourceName = 'products';
+const baseURL = import.meta.env.VITE_API_SERVER_URL;
+const resourceName = "products";
 
 export default {
-
   async getProducts(): Promise<Product[]> {
     const sortParams = `?sortBy=modifiedDate&order=desc`;
     const url = `${baseURL}/${resourceName}${sortParams}`;
@@ -18,7 +17,7 @@ export default {
 
       return data;
     } catch (error) {
-      console.error("API Error while loading products:", error); // log technical details in the service
+      console.error("API Error while loading products: ", error); // log technical details in the service
       throw error; // return the error to the component for a user facing message
     }
   },
@@ -30,9 +29,45 @@ export default {
       const response = await fetch(url);
       return await response.json();
     } catch (error) {
-      console.error("API Error while loading product:", error);
+      console.error("API Error while loading product: ", error);
       throw error;
     }
   },
 
-}
+  async insertProduct(product: Product): Promise<Product> {
+    product.modifiedDate = new Date();
+    const url = `${baseURL}/${resourceName}`;
+    const options: RequestInit = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    };
+
+    try {
+      const response = await fetch(url, options);
+      return await response.json();
+    } catch (error) {
+      console.error("API Error while creating new product: ", error);
+      throw error;
+    }
+  },
+
+   async deleteProduct(product: Product): Promise<void> {
+    const url = `${baseURL}/${resourceName}/${product.id}`;
+    const options: RequestInit = {
+      method: "DELETE",
+    };
+
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("API Error while deleting product: ", error);
+      throw error;
+    }
+  },
+};
